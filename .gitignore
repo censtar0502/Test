@@ -1,13 +1,17 @@
-# STM32CubeIDE ignores
-
+# STM32CubeIDE / Eclipse workspace files
 .metadata/
 .settings/
 *.launch
+
+# Build / Debug / Release folders (самое важное!)
 Debug/
 debug/
 Release/
 release/
+binary/
 Binary/
+
+# Object files, binaries, intermediates
 *.o
 *.obj
 *.elf
@@ -20,7 +24,34 @@ Binary/
 *.dep
 *.mk
 *.size
+*.cmake
+
+# Linker scripts — часто игнорируют, если они генерируются
+# *.ld               ← раскомментируй, если используешь CubeMX-генерируемый linker и не хочешь его в git
+
+# CubeMX / CubeIDE generated / temporary
 .mxproject
+STM32CubeIDE.latte
+*.ioc.bak
+*startup_stm*.s   # иногда генерируется заново
+
+# macOS / Windows мусор
+.DS_Store
+Thumbs.db
+ehthumbs.db
+*.suo
+*.user
+*.sdf
+*.opensdf
+*.suo
+*.sln.docstates
+
+# Logs и временные файлы
 *.log
 *.bak
+*.swp
 *~
+
+# Дополнительно (если используете)
+.cproject.bak
+.project.bak
