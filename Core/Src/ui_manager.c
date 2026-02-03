@@ -75,6 +75,9 @@ static char error_message[32];
 static uint32_t error_display_start = 0;
 static uint32_t error_display_duration = 3000;  // 3 seconds
 
+// Forward declaration
+static void ShowErrorMessage(const char* msg);
+
 void UI_Init(void) {
     Keyboard_Init();
     Dispenser_Init();
@@ -88,6 +91,11 @@ void UI_Init(void) {
         
         // Сохраняем корректное значение обратно в EEPROM
         EEPROM_SavePrice(global_price);
+        
+        // Show error message to user
+        char error_msg[32];
+        snprintf(error_msg, sizeof(error_msg), "EEPROM ERR");
+        ShowErrorMessage(error_msg);
     } else {
         UsbLog_Printf("Loaded price from EEPROM: %lu\r\n", (unsigned long)global_price);
     }
@@ -250,7 +258,7 @@ static void DrawTransactionResult(void) {
 }
 
 // Функция для отображения сообщения об ошибке
-static void ShowErrorMessage(const char* msg) {
+void ShowErrorMessage(const char* msg) {
     strncpy(error_message, msg, sizeof(error_message) - 1);
     error_message[sizeof(error_message) - 1] = '\0';  // Гарантируем null-терминатор
     error_display_start = HAL_GetTick();
@@ -314,7 +322,9 @@ void UI_ProcessInput(void) {
                     ui_state = UI_STATE_MAIN;
                 } else {
                     UsbLog_Printf("ERROR: Price must be 0-9999, got: %lu\r\n", (unsigned long)new_price);
-                    // Оставляемся в том же состоянии для повторного ввода
+                    char error_msg[32];
+                    snprintf(error_msg, sizeof(error_msg), "Price 0-9999");
+                    ShowErrorMessage(error_msg);
                 }
             } else if (key == 'E') {
                 input_pos = 0;
