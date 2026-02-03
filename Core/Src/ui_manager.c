@@ -70,6 +70,11 @@ static uint32_t fuelling_entry_tick = 0;
 
 #define FUELLING_TIMEOUT_MS 60000
 
+// Variables for error message display
+static char error_message[32];
+static uint32_t error_display_start = 0;
+static uint32_t error_display_duration = 3000;  // 3 seconds
+
 void UI_Init(void) {
     Keyboard_Init();
     Dispenser_Init();
@@ -244,6 +249,22 @@ static void DrawTransactionResult(void) {
     SSD1309_UpdateAsync(&oled);
 }
 
+// Функция для отображения сообщения об ошибке
+static void ShowErrorMessage(const char* msg) {
+    strncpy(error_message, msg, sizeof(error_message) - 1);
+    error_message[sizeof(error_message) - 1] = '\0';  // Гарантируем null-терминатор
+    error_display_start = HAL_GetTick();
+    ui_state = UI_STATE_ERROR_MESSAGE;
+}
+
+static void DrawErrorMessage(void) {
+    SSD1309_Clear(&oled);
+    SSD1309_DrawString8x8(&oled, 0, 8, "ERROR", SSD1309_COLOR_WHITE);
+    SSD1309_DrawString8x8(&oled, 0, 32, error_message, SSD1309_COLOR_WHITE);
+    SSD1309_DrawString8x8(&oled, 0, 56, "Press any key...", SSD1309_COLOR_WHITE);
+    SSD1309_UpdateAsync(&oled);
+}
+
 void UI_ProcessInput(void) {
     char key = Keyboard_GetKey();
     if (key != 0) {
@@ -320,17 +341,28 @@ void UI_ProcessInput(void) {
             else if (key == 'K') {
                 // ✅ ИЗМЕНЕНО: Используем ParseDecimalVolume
                 uint32_t volume_cl = ParseDecimalVolume(input_buf);
-                if (volume_cl > 0 && volume_cl <= 44700) {  // Максимум 447.00 литров
-                    target_volume_cl = volume_cl;
-                    target_amount = 0;
-                    transaction_closed = 0;
-                    fuelling_entry_tick = HAL_GetTick();
-                    Dispenser_StartVolume(1, volume_cl, global_price);
-                    ui_state = UI_STATE_FUELLING;
-                } else if (volume_cl > 44700) {
-                    UsbLog_Printf("ERROR: Volume %u.%02u L exceeds maximum 447.00 L\r\n", 
-                        (unsigned int)(volume_cl/100), (unsigned int)(volume_cl%100));
-                    // Можно добавить визуальное предупреждение
+                if (volume_cl > 0) {
+                    // Рассчитываем динамический лимит объёма на основе цены
+                    uint32_t max_volume_by_price = (999900 * 100) / global_price;  // 999900 коп / цена в коп
+                    uint32_t max_volume_limit = (max_volume_by_price < 90000) ? max_volume_by_price : 90000;
+                    
+                    if (volume_cl <= max_volume_limit) {
+                        target_volume_cl = volume_cl;
+                        target_amount = 0;
+                        transaction_closed = 0;
+                        fuelling_entry_tick = HAL_GetTick();
+                        Dispenser_StartVolume(1, volume_cl, global_price);
+                        ui_state = UI_STATE_FUELLING;
+                    } else {
+                        UsbLog_Printf("ERROR: Volume %u.%02u L exceeds max %u.%02u L (price %u.%02u)\r\n", 
+                            (unsigned int)(volume_cl/100), (unsigned int)(volume_cl%100),
+                            (unsigned int)(max_volume_limit/100), (unsigned int)(max_volume_limit%100),
+                            (unsigned int)(global_price/100), (unsigned int)(global_price%100));
+                        char error_msg[32];
+                        snprintf(error_msg, sizeof(error_msg), "Max %u.%02u L", 
+                            (unsigned int)(max_volume_limit/100), (unsigned int)(max_volume_limit%100));
+                        ShowErrorMessage(error_msg);
+                    }
                 }
             }
             else if (key == 'E') {
@@ -351,12 +383,26 @@ void UI_ProcessInput(void) {
             } else if (key == 'K') {
                 uint32_t amount = atol(input_buf);
                 if (amount > 0) {
-                    target_amount = amount;
-                    target_volume_cl = 0;
-                    transaction_closed = 0;
-                    fuelling_entry_tick = HAL_GetTick();
-                    Dispenser_StartAmount(1, amount, global_price);
-                    ui_state = UI_STATE_FUELLING;
+                    // Рассчитываем динамический лимит суммы на основе цены и максимального объёма
+                    uint32_t max_amount_by_volume = (90000 * global_price) / 100;  // 900.00 л * цена в копейках
+                    uint32_t max_amount_limit = (max_amount_by_volume < 999900) ? max_amount_by_volume : 999900;
+                    
+                    if (amount <= max_amount_limit) {
+                        target_amount = amount;
+                        target_volume_cl = 0;
+                        transaction_closed = 0;
+                        fuelling_entry_tick = HAL_GetTick();
+                        Dispenser_StartAmount(1, amount, global_price);
+                        ui_state = UI_STATE_FUELLING;
+                    } else {
+                        UsbLog_Printf("ERROR: Amount %lu exceeds max %lu (price %u.%02u, max vol %u.%02u L)\r\n", 
+                            (unsigned long)amount, (unsigned long)max_amount_limit,
+                            (unsigned int)(global_price/100), (unsigned int)(global_price%100),
+                            (unsigned int)(90000/100), (unsigned int)(90000%100));
+                        char error_msg[32];
+                        snprintf(error_msg, sizeof(error_msg), "Max %lu", (unsigned long)max_amount_limit);
+                        ShowErrorMessage(error_msg);
+                    }
                 }
             } else if (key == 'E') {
                 input_pos = 0;
@@ -423,6 +469,13 @@ void UI_ProcessInput(void) {
                 ui_state = UI_STATE_MAIN;
             }
             break;
+            
+        case UI_STATE_ERROR_MESSAGE:
+            // При любом нажатии клавиши возвращаемся в главное меню
+            if (key != 0) {
+                ui_state = UI_STATE_MAIN;
+            }
+            break;
     }
 }
 
@@ -455,6 +508,13 @@ void UI_Draw(void) {
             break;
         case UI_STATE_TRANSACTION_RESULT:
             DrawTransactionResult();
+            break;
+        case UI_STATE_ERROR_MESSAGE:
+            DrawErrorMessage();
+            // Автоматический возврат после таймаута или при нажатии любой клавиши
+            if ((now - error_display_start) > error_display_duration) {
+                ui_state = UI_STATE_MAIN;
+            }
             break;
     }
 }

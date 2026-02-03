@@ -10,7 +10,8 @@ typedef enum {
     UI_STATE_INPUT_VOLUME,
     UI_STATE_INPUT_AMOUNT,
     UI_STATE_FUELLING,
-    UI_STATE_TRANSACTION_RESULT
+    UI_STATE_TRANSACTION_RESULT,
+    UI_STATE_ERROR_MESSAGE  // Новое состояние для сообщений об ошибках
 } UI_State_t;
 
 void UI_Init(void);
