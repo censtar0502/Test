@@ -1,0 +1,10 @@
+../Core/Inc/ssd1309.h:84:20:SSD1309_IsReady	1
+../Core/Src/main.c:94:13:UsbLog_Push	3
+../Core/Src/main.c:106:6:UsbLog_Printf	3
+../Core/Src/main.c:119:13:UsbLog_Task	5
+../Core/Src/main.c:144:5:main	2
+../Core/Src/main.c:213:6:SystemClock_Config	4
+../Core/Src/main.c:259:6:HAL_SPI_TxCpltCallback	2
+../Core/Src/main.c:266:6:HAL_SPI_ErrorCallback	2
+../Core/Src/main.c:277:6:MPU_Config	1
+../Core/Src/main.c:300:6:Error_Handler	1

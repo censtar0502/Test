@@ -1,0 +1,3 @@
+../Core/Src/gaskitlink.c:3:9:Gas_CalculateCRC	24	static
+../Core/Src/gaskitlink.c:11:10:Gas_BuildFrame	32	static
+../Core/Src/gaskitlink.c:31:5:Gas_ParseFrame	32	static

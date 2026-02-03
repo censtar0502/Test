@@ -1,0 +1,582 @@
+<STX><NUL><SOH>SR //опрос статуса ведомого
+<STX><NUL><SOH>S10S // ответ ведомого /транзакции нет, ведомый в дежурном режиме ожидает команду мастера/
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>C0r //переодический опрос тоталайзера.
+<STX><NUL><SOH>C1;000396003w //показания тоталайзера
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>C0r
+<STX><NUL><SOH>C1;000396003w
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>V1;000500;1100c //отправили код транзакции на объём 5 литров по цене 1100 сум
+<STX><NUL><SOH>S31P //ведомый принял код транзакции и ожидает поднятие пистолета
+<STX><NUL><SOH>SR //опрос статуса ведомого
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S31P
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S41W //пистолет поднят транзакция началась
+<STX><NUL><SOH>SR //опрос статуса ведомого
+<STX><NUL><SOH>S61U //транзакция в процессе и продолжается
+<STX><NUL><SOH>LM //опрос отпущеного объём
+<STX><NUL><SOH>L1q6;000009<HT> //отпущенный объём
+<STX><NUL><SOH>RS //опрос отпущеного объёма на  сумму
+<STX><NUL><SOH>R1q6;000121<FS> //отпущено на сумму..
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000019<BS>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;000242<SUB>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000030<ETX>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;000363<CAN>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000039<LF>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;000473<RS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000050<ENQ>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;000583<DLE>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000058<CR>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;000682<DC2>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000069<SI>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;000792<DC2>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000078<SI>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;000902<NAK>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000087<SI>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;001001<RS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000099<NUL>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;001122<RS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000109<BS>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;001232<FS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000119<HT>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;001353<SUB>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000130<STX>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;001452<FS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000140<ENQ>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;001573<RS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000150<EOT>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;001694<DC4>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000160<BEL>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;001804<DC3>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000171<BEL>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;001914<DC3>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000181<BS>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;002024<SUB>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000191<HT>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;002145<FS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000201<ETX>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;002255<RS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000212<SOH>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;002365<FS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000221<SOH>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;002475<SUB>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000232<ETX>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;002596<SYN>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000242<EOT>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;002706<GS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000253<EOT>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;002816<DC3>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000262<ACK>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;002926<DC1>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000274<SOH>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;003047<RS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000283<HT>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;003135<SUB>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000292<HT>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;003256<FS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000302<SOH>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;003366<RS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000313<SOH>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;003476<CAN>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000322<ETX>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;003586<SYN>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000332<STX>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;003685<SYN>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000343<EOT>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;003806<DC3>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000353<ENQ>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;003916<DC3>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000363<ACK>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;004037<RS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000374<NUL>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;004136<RS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000382<HT>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;004246<SUB>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000393<HT>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;004356<SUB>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000402<ACK>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;004455<RS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000412<BEL>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;004565<FS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000423<ENQ>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;004686<DC2>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000431<ACK>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;004785<DLE>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000442<STX>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;004895<RS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000452<ETX>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;005016<FS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000462<NUL>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;005115<RS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000471<STX>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;005225<RS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000482<SO>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;005335<RS>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q6;000491<FF>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q6;005434<CAN>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S61U
+<STX><NUL><SOH>LM
+<STX><NUL><SOH>L1q8;000500<VT>
+<STX><NUL><SOH>RS
+<STX><NUL><SOH>R1q8;005500<DLE>
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S81[ //транзакция окончена но пистолет не повешан, отправляем запрос на получение фмнальных данных TU
+<STX><NUL><SOH>TU //запрос финальных данных
+<STX><NUL><SOH>T1q8;005500;000500;1100<DC3> //финальные данные
+<STX><NUL><SOH>C0r
+<STX><NUL><SOH>C1;000396503r
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S81[ //транзакция окончена но пистолет не повешан, больше не отправляем запрос на получение фмнальных данных TU, ждём возврата пистолета
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S81[
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S81[
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S81[
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S90[ // пистолет повешан
+<STX><NUL><SOH>NO // закрываем транзакцию
+<STX><NUL><SOH>S90[ // транзакция завершена
+<STX><NUL><SOH>SR //возвращаемся в дежурный режим
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+<STX><NUL><SOH>SR
+<STX><NUL><SOH>S10S
+
+
+Если во время дежурного режима на запрос статуса SR получаем ответ
+ <STX><NUL><SOH>S21Q то это означает что пистолет поднят или не на месте, мы еще не передали команду транзакции. 
+Нужно сообщить пользователю что необходимо повесть пистолет. 
+команда <STX><NUL><SOH>B+CRC переход на паузу во время транзакции
+команда <STX><NUL><SOH>G+CRC переход на восстановление транзакции из состояния пуузы.
+Не забываем что в запросе, команде, ответе последний байт это CRC
+
+GasKitLink Communication Protocol Specification
+(Revision 1.2 - Исправленная версия)
+
+Физический уровень (Physical Layer):
+- RS422, 4-проводной, Full duplex
+- Скорость: 9600 бод
+- Формат байта: 1 старт-бит, 8 бит данных, нет контроля четности, 1 стоп-бит
+
+Уровень передачи данных (Datalink Layer):
+Формат кадра:
+[STX][Адрес Slave 2 байта][Команда][Данные][CRC]
+
+Поля:
+- STX: 0x02 (ASCII SYN)
+- Адрес Slave: 2 байта ASCII ('00' для контроллера, '01'-'32' для Slave)
+- Команда: 1 байт ASCII
+- Данные: до 22 байт ASCII
+- CRC: 1 байт, XOR всех байтов со 2-го по предпоследний
+
+Правила связи:
+- Задержка ответа Slave: 3 мс
+- Таймаут ожидания ответа Master: 50 мс
+- Межбайтовый таймаут: 3 мс
+
+Прикладной уровень (Application Layer):
+
+Список команд и ответов:
+
+1. Запрос статуса
+   Команда: 'S' (1 байт)
+   Ответ: 'Ssg' (4 байта)
+   где: s - статус (0-9), g - номер сопла (0-6, 0 - нет выбранного)
+   Пример: S → S10 (CRC добавляется)
+
+2. Старт с объемным пресетом
+   Команда: 'Vg;llllll;pppp' (16 байт)
+   где: g - номер сопла, llllll - объем в сантилитрах, pppp - цена
+   Ответ: 'Ssg'
+   Пример: V1;000500;1100 → S31 (CRC добавляется)
+
+3. Старт с денежным пресетом
+   Команда: 'Mg;mmmmmm;pppp' (16 байт)
+   Ответ: 'Ssg'
+
+4. Возобновление
+   Команда: 'G' (1 байт)
+   Ответ: 'Ssg'
+   Допустимые состояния: 5, 7
+
+5. Запрос реального объема
+   Команда: 'L' (1 байт)
+   Ответ: 'Lgis;llllll' (10 байт)
+   где: g - номер сопла, i - ID транзакции, s - статус, llllll - объем
+   Пример: L → L1q6;000100 (CRC добавляется)
+
+6. Запрос реальной суммы
+   Команда: 'R' (1 байт)
+   Ответ: 'Rgis;mmmmmm' (10 байт)
+   Пример: R → R1q6;000121 (CRC добавляется)
+
+7. Запрос данных транзакции
+   Команда: 'T' (1 байт)
+   Ответ: 'Tgis;mmmmmm;llllll;pppp' (22 байта)
+   Пример: T → T1q8;005500;000500;1100 (CRC добавляется)
+
+8. Запрос счетчика тотала
+   Команда: 'Cg' (2 байта)
+   Ответ: 'Cg;ccccccccc' (11 байт)
+   Пример: C0 → C1;000396003 (CRC добавляется)
+
+9. Завершение текущей транзакции
+   Команда: 'N' (1 байт)
+   Ответ: 'Ssg'
+   Допустимое состояние: 9
+
+10. Остановка
+    Команда: 'B' (1 байт)
+    Ответ: 'Ssg'
+    Допустимые состояния: 3, 4, 5, 6, 7
+
+11. Установка параметра
+    Команда: 'Wnnxxxx' (6 байт)
+    Ответ: 'Znnxxxx' (6 байт)
+
+12. Запрос параметра
+    Команда: 'Znn' (2 байта)
+    Ответ: 'Znnxxxx' (6 байт)
+
+13. Переключение канала контроллера
+    Команда: 'Dgg' (3 байта, адрес всегда '00')
+    Ответ: 'Dgg' (3 байта)
+
+Состояния диспенсера (статусы):
+0. Ошибка (Error)
+1. Ожидание (Idle)
+2. Вызов (Calling)
+3. Авторизован (Authorized)
+4. Запущен (Started)
+5. Приостановлен запуск (Suspended started)
+6. Заправка (Fuelling)
+7. Приостановлена заправка (Suspended fuelling)
+8. Остановка (Stop)
+9. Завершение (End)
+
+Примечания:
+1. Все команды и ответы заканчиваются байтом CRC, вычисляемым как XOR всех предыдущих байтов кадра (со 2-го байта).
+2. Номера сопел: 0 - нет выбранного, 1-6 - номера сопел.
+3. ID транзакции: символы 'a'-'z'.
+4. Объем передается в сантилитрах (1 литр = 100 сантилитров).
+5. Данные передаются в формате ASCII.
+
+Пример полного кадра:
+[0x02]['0']['0']['S']['R'][CRC]
+где:
+- 0x02: STX
+- '0','0': адрес контроллера
+- 'S': команда
+- 'R': данные (пустые в данном случае)
+- CRC: XOR('0','0','S','R')
+
+В эталонном логе символы CRC отображаются как ASCII символы, но в реальной передаче это байты, которые могут не иметь печатного представления.

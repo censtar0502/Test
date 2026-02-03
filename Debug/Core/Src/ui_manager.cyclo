@@ -1,0 +1,11 @@
+../Core/Src/ui_manager.c:16:17:ParseDecimalVolume	11
+../Core/Src/ui_manager.c:72:6:UI_Init	3
+../Core/Src/ui_manager.c:85:13:DrawMain	3
+../Core/Src/ui_manager.c:106:13:DrawTotalizer	2
+../Core/Src/ui_manager.c:121:13:DrawSetPrice	2
+../Core/Src/ui_manager.c:134:13:DrawInputVolume	2
+../Core/Src/ui_manager.c:148:13:DrawInputAmount	2
+../Core/Src/ui_manager.c:160:13:DrawFuelling	19
+../Core/Src/ui_manager.c:216:13:DrawTransactionResult	2
+../Core/Src/ui_manager.c:237:6:UI_ProcessInput	54
+../Core/Src/ui_manager.c:408:6:UI_Draw	9

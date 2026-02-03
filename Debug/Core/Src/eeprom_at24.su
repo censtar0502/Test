@@ -1,0 +1,4 @@
+../Core/Src/eeprom_at24.c:5:19:EEPROM_Write	40	static
+../Core/Src/eeprom_at24.c:13:19:EEPROM_Read	32	static
+../Core/Src/eeprom_at24.c:17:19:EEPROM_SavePrice	24	static
+../Core/Src/eeprom_at24.c:26:10:EEPROM_LoadPrice	16	static

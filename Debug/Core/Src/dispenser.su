@@ -1,0 +1,13 @@
+../Core/Src/dispenser.c:32:6:Dispenser_Init	8	static
+../Core/Src/dispenser.c:43:13:ChangeState	72	static
+../Core/Src/dispenser.c:59:13:SendFrame	32	static
+../Core/Src/dispenser.c:75:16:IsStateTimeout	24	static
+../Core/Src/dispenser.c:80:16:ProcessStatusResponse	24	static
+../Core/Src/dispenser.c:140:6:Dispenser_Update	280	static,ignoring_inline_asm
+../Core/Src/dispenser.c:397:6:Dispenser_StartVolume	64	static
+../Core/Src/dispenser.c:411:6:Dispenser_StartAmount	64	static
+../Core/Src/dispenser.c:425:6:Dispenser_RequestTotalizer	8	static
+../Core/Src/dispenser.c:429:6:Dispenser_Stop	8	static
+../Core/Src/dispenser.c:433:6:Dispenser_Resume	8	static
+../Core/Src/dispenser.c:437:6:Dispenser_CloseTransaction	8	static
+../Core/Src/dispenser.c:441:6:HAL_UARTEx_RxEventCallback	24	static

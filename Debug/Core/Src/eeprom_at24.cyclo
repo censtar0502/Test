@@ -1,0 +1,4 @@
+../Core/Src/eeprom_at24.c:5:19:EEPROM_Write	2
+../Core/Src/eeprom_at24.c:13:19:EEPROM_Read	1
+../Core/Src/eeprom_at24.c:17:19:EEPROM_SavePrice	1
+../Core/Src/eeprom_at24.c:26:10:EEPROM_LoadPrice	2
