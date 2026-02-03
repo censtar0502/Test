@@ -32,6 +32,7 @@ typedef enum {
     STATE_ERROR               // Состояние ошибки (таймаут)
 } DispenserState_t;
 
+// Структура для каждого ведомого устройства
 typedef struct {
     DispenserStatus_t status;
     uint8_t nozzle;
@@ -47,19 +48,40 @@ typedef struct {
     // Машина состояний
     DispenserState_t state;
     uint32_t state_entry_tick;  // Время входа в текущее состояние
+    
+    // UART порт для этого ведомого
+    UART_HandleTypeDef *huart;
+    
+    // Адрес ведомого (0x01 или 0x02)
+    uint8_t slave_address;
+    
+    // Флаг команды T
+    uint8_t t_command_sent;
+    
+    // Состояние транзакции
+    uint8_t transaction_closed;
+} DispenserUnit_t;
+
+// Структура для управления двумя ведомыми устройствами
+typedef struct {
+    DispenserUnit_t units[2];  // Два ведомых устройства
+    uint8_t active_unit;       // Индекс активного ведомого (0 или 1)
 } Dispenser_t;
 
 void Dispenser_Init(void);
 void Dispenser_Update(void);
 
-// Commands
-void Dispenser_StartVolume(uint8_t nozzle, uint32_t volume_cl, uint32_t price);
-void Dispenser_StartAmount(uint8_t nozzle, uint32_t amount, uint32_t price);
-void Dispenser_Stop(void);
-void Dispenser_Resume(void);
-void Dispenser_CloseTransaction(void);
-void Dispenser_RequestTotalizer(void);
+// Commands для конкретного ведомого
+void Dispenser_StartVolume(uint8_t unit_idx, uint8_t nozzle, uint32_t volume_cl, uint32_t price);
+void Dispenser_StartAmount(uint8_t unit_idx, uint8_t nozzle, uint32_t amount, uint32_t price);
+void Dispenser_Stop(uint8_t unit_idx);
+void Dispenser_Resume(uint8_t unit_idx);
+void Dispenser_CloseTransaction(uint8_t unit_idx);
+void Dispenser_RequestTotalizer(uint8_t unit_idx);
 
-extern Dispenser_t g_dispenser;
+// Функции для переключения между ведомыми
+void Dispenser_SwitchActiveUnit(uint8_t unit_idx);
+uint8_t Dispenser_GetActiveUnit(void);
+DispenserUnit_t* Dispenser_GetUnit(uint8_t unit_idx);
 
 #endif // DISPENSER_H

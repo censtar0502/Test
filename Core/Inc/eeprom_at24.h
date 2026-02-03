@@ -13,4 +13,8 @@ HAL_StatusTypeDef EEPROM_Read(uint16_t mem_addr, uint8_t *data, uint16_t size);
 HAL_StatusTypeDef EEPROM_SavePrice(uint32_t price);
 uint32_t EEPROM_LoadPrice(void);
 
+// Additional helper for second unit
+HAL_StatusTypeDef EEPROM_SavePriceToAddr(uint16_t addr, uint32_t price);
+uint32_t EEPROM_LoadPriceFromAddr(uint16_t addr);
+
 #endif // EEPROM_AT24_H

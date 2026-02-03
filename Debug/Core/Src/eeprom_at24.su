@@ -1,4 +1,6 @@
-../Core/Src/eeprom_at24.c:5:19:EEPROM_Write	40	static
-../Core/Src/eeprom_at24.c:13:19:EEPROM_Read	32	static
-../Core/Src/eeprom_at24.c:17:19:EEPROM_SavePrice	24	static
-../Core/Src/eeprom_at24.c:26:10:EEPROM_LoadPrice	16	static
+../Core/Src/eeprom_at24.c:6:19:EEPROM_Write	40	static
+../Core/Src/eeprom_at24.c:14:19:EEPROM_Read	32	static
+../Core/Src/eeprom_at24.c:18:19:EEPROM_SavePrice	24	static
+../Core/Src/eeprom_at24.c:27:10:EEPROM_LoadPrice	16	static
+../Core/Src/eeprom_at24.c:33:19:EEPROM_SavePriceToAddr	24	static
+../Core/Src/eeprom_at24.c:42:10:EEPROM_LoadPriceFromAddr	24	static
