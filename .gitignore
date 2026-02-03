@@ -1,0 +1,26 @@
+# STM32CubeIDE ignores
+
+.metadata/
+.settings/
+*.launch
+Debug/
+debug/
+Release/
+release/
+Binary/
+*.o
+*.obj
+*.elf
+*.hex
+*.bin
+*.map
+*.d
+*.su
+*.lst
+*.dep
+*.mk
+*.size
+.mxproject
+*.log
+*.bak
+*~
