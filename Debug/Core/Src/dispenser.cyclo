@@ -4,10 +4,10 @@
 ../Core/Src/dispenser.c:75:16:IsStateTimeout	1
 ../Core/Src/dispenser.c:80:16:ProcessStatusResponse	18
 ../Core/Src/dispenser.c:140:6:Dispenser_Update	59
-../Core/Src/dispenser.c:397:6:Dispenser_StartVolume	1
-../Core/Src/dispenser.c:411:6:Dispenser_StartAmount	1
-../Core/Src/dispenser.c:425:6:Dispenser_RequestTotalizer	1
-../Core/Src/dispenser.c:429:6:Dispenser_Stop	1
-../Core/Src/dispenser.c:433:6:Dispenser_Resume	1
-../Core/Src/dispenser.c:437:6:Dispenser_CloseTransaction	1
-../Core/Src/dispenser.c:441:6:HAL_UARTEx_RxEventCallback	7
+../Core/Src/dispenser.c:400:6:Dispenser_StartVolume	1
+../Core/Src/dispenser.c:414:6:Dispenser_StartAmount	1
+../Core/Src/dispenser.c:428:6:Dispenser_RequestTotalizer	1
+../Core/Src/dispenser.c:432:6:Dispenser_Stop	1
+../Core/Src/dispenser.c:436:6:Dispenser_Resume	1
+../Core/Src/dispenser.c:440:6:Dispenser_CloseTransaction	1
+../Core/Src/dispenser.c:444:6:HAL_UARTEx_RxEventCallback	7

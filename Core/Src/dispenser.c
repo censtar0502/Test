@@ -140,11 +140,14 @@ static uint8_t ProcessStatusResponse(const GasFrame_t *frame) {
 void Dispenser_Update(void) {
     uint32_t now = HAL_GetTick();
     
+    // ===================================================================
     // КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ #1: Атомарное копирование RX данных
+    // ===================================================================
     uint8_t local_rx_buf[64];
     uint16_t local_rx_len = 0;
     uint8_t has_data = 0;
     
+    // АТОМАРНОЕ КОПИРОВАНИЕ ДАННЫХ ИЗ ISR БУФЕРА
     __disable_irq();
     if (rx_ready) {
         local_rx_len = rx_len;

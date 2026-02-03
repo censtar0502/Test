@@ -57,7 +57,8 @@ extern SSD1309_t oled;
 static UI_State_t ui_state = UI_STATE_MAIN;
 static UI_State_t prev_transaction_mode = UI_STATE_INPUT_VOLUME;
 static uint32_t global_price = 0;
-static char input_buf[16];
+#define INPUT_BUF_MAX_CHARS 10  // Максимум символов для ввода (не включая '\0')
+static char input_buf[INPUT_BUF_MAX_CHARS + 1];  // +1 для '\0'
 static uint8_t input_pos = 0;
 static uint32_t last_ui_draw_tick = 0;
 
@@ -73,8 +74,17 @@ void UI_Init(void) {
     Keyboard_Init();
     Dispenser_Init();
     global_price = EEPROM_LoadPrice();
-    if (global_price == 0 || global_price > 999999) {
+    
+    // Строгая валидация с диапазоном 0-9999
+    if (global_price > 9999) {
+        UsbLog_Printf("WARNING: Invalid price from EEPROM: %lu, using default 1100\r\n", 
+                     (unsigned long)global_price);
         global_price = 1100;
+        
+        // Сохраняем корректное значение обратно в EEPROM
+        EEPROM_SavePrice(global_price);
+    } else {
+        UsbLog_Printf("Loaded price from EEPROM: %lu\r\n", (unsigned long)global_price);
     }
     memset(input_buf, 0, sizeof(input_buf));
     input_pos = 0;
@@ -275,9 +285,16 @@ void UI_ProcessInput(void) {
                     input_buf[input_pos] = '\0';
                 }
             } else if (key == 'K') {
-                global_price = atol(input_buf);
-                EEPROM_SavePrice(global_price);
-                ui_state = UI_STATE_MAIN;
+                uint32_t new_price = atol(input_buf);
+                if (new_price <= 9999) {
+                    global_price = new_price;
+                    EEPROM_SavePrice(global_price);
+                    UsbLog_Printf("Price set to: %lu\r\n", (unsigned long)global_price);
+                    ui_state = UI_STATE_MAIN;
+                } else {
+                    UsbLog_Printf("ERROR: Price must be 0-9999, got: %lu\r\n", (unsigned long)new_price);
+                    // Оставляемся в том же состоянии для повторного ввода
+                }
             } else if (key == 'E') {
                 input_pos = 0;
                 memset(input_buf, 0, sizeof(input_buf));
@@ -288,14 +305,14 @@ void UI_ProcessInput(void) {
             
         case UI_STATE_INPUT_VOLUME:
             if (key >= '0' && key <= '9') {
-                if (input_pos < 10) {
+                if (input_pos < INPUT_BUF_MAX_CHARS) {
                     input_buf[input_pos++] = key;
                     input_buf[input_pos] = '\0';
                 }
             }
             // ✅ НОВОЕ: Обработка точки
             else if (key == '.') {
-                if (strchr(input_buf, '.') == NULL && input_pos > 0 && input_pos < 10) {
+                if (strchr(input_buf, '.') == NULL && input_pos > 0 && input_pos < INPUT_BUF_MAX_CHARS) {
                     input_buf[input_pos++] = '.';
                     input_buf[input_pos] = '\0';
                 }
@@ -303,13 +320,17 @@ void UI_ProcessInput(void) {
             else if (key == 'K') {
                 // ✅ ИЗМЕНЕНО: Используем ParseDecimalVolume
                 uint32_t volume_cl = ParseDecimalVolume(input_buf);
-                if (volume_cl > 0 && volume_cl <= 90000) {
+                if (volume_cl > 0 && volume_cl <= 44700) {  // Максимум 447.00 литров
                     target_volume_cl = volume_cl;
                     target_amount = 0;
                     transaction_closed = 0;
                     fuelling_entry_tick = HAL_GetTick();
                     Dispenser_StartVolume(1, volume_cl, global_price);
                     ui_state = UI_STATE_FUELLING;
+                } else if (volume_cl > 44700) {
+                    UsbLog_Printf("ERROR: Volume %u.%02u L exceeds maximum 447.00 L\r\n", 
+                        (unsigned int)(volume_cl/100), (unsigned int)(volume_cl%100));
+                    // Можно добавить визуальное предупреждение
                 }
             }
             else if (key == 'E') {

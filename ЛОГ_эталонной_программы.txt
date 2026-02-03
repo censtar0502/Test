@@ -580,3 +580,6 @@ GasKitLink Communication Protocol Specification
 - CRC: XOR('0','0','S','R')
 
 В эталонном логе символы CRC отображаются как ASCII символы, но в реальной передаче это байты, которые могут не иметь печатного представления.
+
+
+pt-Ro3ViGaDJSyAvciDv0T8kYdn_019c22de-61f4-7039-8049-d8915ec584f2
